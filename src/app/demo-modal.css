@@ -1,0 +1,221 @@
+.demo-registration-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(calc(100% - 32px), 640px);
+  max-height: min(90dvh, 840px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 24px;
+  color: var(--purepic-primary-text);
+  background: var(--purepic-white);
+  box-shadow: 0 24px 90px rgb(2 16 34 / 32%);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+
+.demo-registration-dialog::backdrop {
+  background: rgb(3 17 35 / 76%);
+  backdrop-filter: blur(5px);
+}
+
+.button[data-demo-trigger],
+.final-cta-button[data-demo-trigger] {
+  cursor: pointer;
+}
+
+.demo-registration-panel {
+  position: relative;
+  padding: clamp(24px, 5vw, 42px);
+  background: radial-gradient(circle at 100% 0%, var(--purepic-soft-peach), transparent 42%), white;
+}
+
+.demo-registration-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--purepic-subtle-border);
+  border-radius: 50%;
+  background: white;
+  color: var(--purepic-deep-navy);
+  cursor: pointer;
+}
+
+.demo-registration-eyebrow {
+  margin: 0 52px 10px 0;
+  color: var(--purepic-orange-ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.demo-registration-panel h2 {
+  max-width: 500px;
+  margin: 0 40px 10px 0;
+  color: var(--purepic-deep-navy);
+  font-family: var(--font-playfair-display), Georgia, serif;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.17;
+}
+
+.demo-registration-panel p:not(.demo-registration-eyebrow, .demo-registration-error, .demo-registration-note) {
+  max-width: 520px;
+  margin: 0 0 26px;
+  color: var(--purepic-muted-text);
+  line-height: 1.55;
+}
+
+.demo-registration-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.demo-registration-field:first-child,
+.demo-registration-field:last-child {
+  grid-column: 1 / -1;
+}
+
+.demo-registration-field label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--purepic-deep-navy);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.demo-registration-field label span,
+.demo-registration-field-error {
+  color: #b33413;
+}
+
+.demo-registration-field input {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: white;
+  color: var(--purepic-deep-navy);
+  font: inherit;
+  font-size: 15px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.demo-registration-field input:hover,
+.demo-registration-field input:focus {
+  border-color: var(--purepic-orange-accent);
+}
+
+.demo-registration-field input:focus-visible,
+.demo-registration-dialog button:focus-visible {
+  outline: 3px solid var(--purepic-orange-accent);
+  outline-offset: 2px;
+}
+
+.demo-registration-field input[aria-invalid="true"] {
+  border-color: #b33413;
+}
+
+.demo-registration-field-error {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.demo-registration-error {
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff0eb;
+  color: #a22e11;
+  font-size: 13px;
+}
+
+.demo-registration-submit {
+  display: inline-flex;
+  min-width: 188px;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--purepic-orange-accent);
+  color: #091b31;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 9px 22px rgb(245 130 18 / 20%);
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.demo-registration-submit:hover:not(:disabled) {
+  background: #ff9b30;
+  transform: translateY(-1px);
+}
+
+.demo-registration-submit:disabled {
+  cursor: wait;
+  opacity: .72;
+}
+
+.demo-registration-note {
+  margin: 13px 0 0;
+  color: var(--purepic-muted-text);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.demo-registration-success {
+  padding-block: 28px 16px;
+}
+
+.demo-registration-check {
+  display: grid;
+  width: 62px;
+  height: 62px;
+  place-items: center;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: #eaf8ee;
+  color: #17834b;
+}
+
+@media (max-width: 540px) {
+  .demo-registration-dialog {
+    width: calc(100% - 20px);
+    max-height: calc(100dvh - 20px);
+    border-radius: 18px;
+  }
+
+  .demo-registration-panel {
+    padding: 24px 20px 28px;
+  }
+
+  .demo-registration-fields {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .demo-registration-field:first-child,
+  .demo-registration-field:last-child {
+    grid-column: auto;
+  }
+
+  .demo-registration-submit {
+    width: 100%;
+  }
+}
